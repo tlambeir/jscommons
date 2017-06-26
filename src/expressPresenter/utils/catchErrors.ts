@@ -27,22 +27,22 @@ export default (config: Config, handler: Handler): Handler => {
       switch (err.constructor) {
         case InvalidAuth: {
           const code = 400;
-          const message = translator.invalidAuth(err);
+          const message = translator.invalidAuth(err as InvalidAuth);
           return sendMessage({ res, code, errorId, message });
         }
         case Warnings: {
           const code = 400;
-          const warnings = err.warnings;
+          const warnings = (err as Warnings).warnings;
           return sendWarnings({ res, code, errorId, warnings, translator });
         }
         case NoModel: {
           const code = 404;
-          const message = translator.noModel(err);
+          const message = translator.noModel(err as NoModel);
           return sendMessage({ res, code, errorId, message });
         }
         case Unauthorised: {
           const code = 401;
-          const message = translator.unauthorised(err);
+          const message = translator.unauthorised(err as Unauthorised);
           return sendMessage({ res, code, errorId, message });
         }
         case Error:

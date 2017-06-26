@@ -1,4 +1,4 @@
-import Repo from '../repo';
+import Repo from '../Repo';
 import clearRepo from './clearRepo';
 import Config from './Config';
 
