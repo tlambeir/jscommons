@@ -3,6 +3,7 @@ import stringPath from './utils/stringPath';
 
 const translator: Translator = {
   invalidAuth: (err) => `Invalid auth '${err.auth}'`,
+  invalidOp: (err) => `Invalid operator '${err.op}'`,
   noModel: (err) => `No ${err.modelName} found`,
   requiredWarning: (warning) => {
     const path = stringPath(warning.path);
