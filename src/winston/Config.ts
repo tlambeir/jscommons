@@ -1,7 +1,7 @@
 interface Config {
   level: string;
-  enableAws: boolean;
-  aws: {
+  cloudWatch: {
+    enabled: boolean;
     logGroupName: string;
     logStreamName: string;
     awsConfig: {

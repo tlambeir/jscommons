@@ -21,10 +21,10 @@ const createConsoleTransport = (config: Config): winston.TransportInstance => {
 
 const createAwsTransport = (config: Config): winston.TransportInstance => {
   return new CloudWatchTransport({
+    awsConfig: config.cloudWatch.awsConfig,
     createLogGroup: true,
     createLogStream: true,
     level: config.level,
-    ...config.aws,
   });
 };
 
@@ -34,7 +34,7 @@ export default (config: Config) => {
     exitOnError: false,
     transports: [
       createConsoleTransport(config),
-      ...(!config.enableAws ? [] : [createAwsTransport(config)]),
+      ...(!config.cloudWatch.enabled ? [] : [createAwsTransport(config)]),
     ],
   });
 };
