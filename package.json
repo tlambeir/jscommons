@@ -1,0 +1,51 @@
+{
+  "name": "stdlib",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "build": "./node_modules/typescript/bin/tsc",
+    "clean": "rm -rf dist",
+    "lint": "./node_modules/tslint/bin/tslint --project ./tsconfig.json -c ./tslint.json",
+    "duplication": "./node_modules/jscpd/bin/jscpd"
+  },
+  "engines": {
+    "node": "^6.0.0",
+    "npm": "^3.10.10"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cors": "^2.8.3",
+    "express": "^4.15.3",
+    "file-stream-rotator": "^0.1.0",
+    "helmet": "^3.6.1",
+    "knex": "^0.13.0",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "mongodb": "^2.2.29",
+    "morgan": "^1.8.2",
+    "rulr": "^3.0.0",
+    "uuid": "^3.1.0",
+    "winston": "^2.3.1",
+    "winston-aws-cloudwatch": "^1.5.0"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.16.4",
+    "@types/cors": "^2.8.1",
+    "@types/express": "^4.0.36",
+    "@types/helmet": "0.0.35",
+    "@types/knex": "0.0.54",
+    "@types/lodash": "^4.14.66",
+    "@types/moment": "^2.13.0",
+    "@types/mongodb": "^2.2.6",
+    "@types/morgan": "^1.7.32",
+    "@types/uuid": "^3.0.0",
+    "@types/winston": "^2.3.3",
+    "jscpd": "^0.6.11",
+    "tslint": "^5.4.3",
+    "tslint-microsoft-contrib": "^5.0.0",
+    "typescript": "^2.3.4"
+  }
+}

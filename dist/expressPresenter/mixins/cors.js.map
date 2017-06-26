@@ -1,0 +1,1 @@
+{"version":3,"file":"cors.js","sourceRoot":"","sources":["../../../src/expressPresenter/mixins/cors.ts"],"names":[],"mappings":";;AAAA,2BAA6B;AAG7B,kBAAe;IACb,MAAM,CAAC,IAAI,CAAC;QACV,MAAM,EAAE,GAAG;QACX,iBAAiB,EAAE,IAAI;KACxB,CAAC,CAAC;AACL,CAAC,CAAC"}
