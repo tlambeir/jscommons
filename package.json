@@ -1,10 +1,13 @@
 {
-  "name": "stdlib",
-  "version": "1.0.0",
-  "description": "",
-  "main": "dist/index.js",
-  "author": "",
-  "license": "ISC",
+  "name": "jscommons",
+  "version": "0.0.0",
+  "description": "A package of common functions used in our JavaScript applications.",
+  "author": "HT2-Labs",
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HT2-Labs/jscommons.git"
+  },
   "scripts": {
     "build": "./node_modules/typescript/bin/tsc",
     "clean": "rm -rf dist",
