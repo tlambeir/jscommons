@@ -4,4 +4,4 @@ sudo: false
 script:
   - npm run build
   - npm run lint
-  - npm run duplication -- --limit=1
+  - npm run duplication -- --limit=0.01

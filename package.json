@@ -43,7 +43,7 @@
     "@types/morgan": "^1.7.32",
     "@types/uuid": "^3.0.0",
     "@types/winston": "^2.3.3",
-    "jscpd": "^0.6.11",
+    "jscpd": "git://github.com/ryansmith94/jscpd.git#prepublish",
     "tslint": "^5.4.3",
     "tslint-microsoft-contrib": "^5.0.0",
     "typescript": "^2.3.4"
