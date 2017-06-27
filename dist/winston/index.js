@@ -1,14 +1,7 @@
 "use strict";
-var __assign = (this && this.__assign) || Object.assign || function(t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-        s = arguments[i];
-        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-            t[p] = s[p];
-    }
-    return t;
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 var moment = require("moment");
+var os = require("os");
 var winston = require("winston");
 var CloudWatchTransport = require("winston-aws-cloudwatch");
 var getTime = function () {
@@ -19,14 +12,21 @@ var createConsoleTransport = function (config) {
         colorize: true,
         handleExceptions: true,
         humanReadableUnhandledException: true,
-        level: config.level,
+        level: config.console.level,
         prettyPrint: true,
         stderrLevels: ['error'],
         timestamp: getTime,
     });
 };
 var createAwsTransport = function (config) {
-    return new CloudWatchTransport(__assign({ createLogGroup: true, createLogStream: true, level: config.level }, config.aws));
+    return new CloudWatchTransport({
+        awsConfig: config.cloudWatch.awsConfig,
+        createLogGroup: true,
+        createLogStream: true,
+        level: config.cloudWatch.level,
+        logGroupName: config.cloudWatch.logGroupName,
+        logStreamName: config.cloudWatch.logStreamName || os.hostname,
+    });
 };
 exports.default = function (config) {
     winston.cli();
@@ -34,7 +34,7 @@ exports.default = function (config) {
         exitOnError: false,
         transports: [
             createConsoleTransport(config)
-        ].concat((!config.enableAws ? [] : [createAwsTransport(config)])),
+        ].concat((!config.cloudWatch.enabled ? [] : [createAwsTransport(config)])),
     });
 };
 //# sourceMappingURL=index.js.map

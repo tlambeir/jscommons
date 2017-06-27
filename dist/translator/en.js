@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var stringPath_1 = require("./utils/stringPath");
 var translator = {
     invalidAuth: function (err) { return "Invalid auth '" + err.auth + "'"; },
+    invalidOp: function (err) { return "Invalid operator '" + err.op + "'"; },
     noModel: function (err) { return "No " + err.modelName + " found"; },
     requiredWarning: function (warning) {
         var path = stringPath_1.default(warning.path);

@@ -1,9 +1,12 @@
 interface Config {
-    level: string;
-    enableAws: boolean;
-    aws: {
+    console: {
+        level: string;
+    };
+    cloudWatch: {
+        level: string;
+        enabled: boolean;
         logGroupName: string;
-        logStreamName: string;
+        logStreamName?: string;
         awsConfig: {
             accessKeyId: string;
             secretAccessKey: string;

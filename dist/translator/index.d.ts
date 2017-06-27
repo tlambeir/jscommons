@@ -1,5 +1,6 @@
 import { RequiredWarning, RestrictedKeysWarning, TypeWarning, Warning } from 'rulr';
 import InvalidAuth from '../errors/InvalidAuth';
+import InvalidOp from '../errors/InvalidOp';
 import NoModel from '../errors/NoModel';
 import Unauthorised from '../errors/Unauthorised';
 interface Translator {
@@ -7,6 +8,7 @@ interface Translator {
     readonly unauthorised: (err: Unauthorised) => string;
     readonly noModel: (err: NoModel) => string;
     readonly invalidAuth: (err: InvalidAuth) => string;
+    readonly invalidOp: (err: InvalidOp) => string;
     readonly typeWarning: (err: TypeWarning) => string;
     readonly requiredWarning: (err: RequiredWarning) => string;
     readonly restrictedKeysWarning: (err: RestrictedKeysWarning) => string;
