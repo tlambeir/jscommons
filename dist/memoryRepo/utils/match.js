@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/* tslint:disable no-use-before-declare */
 var lodash_1 = require("lodash");
 var InvalidOp_1 = require("../../errors/InvalidOp");
 var or = function (conditions) { return function (actual) {

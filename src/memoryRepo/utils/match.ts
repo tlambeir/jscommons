@@ -1,3 +1,4 @@
+/* tslint:disable no-use-before-declare */
 import { includes, isNull, isObject, isUndefined } from 'lodash';
 import InvalidOp from '../../errors/InvalidOp';
 

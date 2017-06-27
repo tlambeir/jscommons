@@ -19,13 +19,14 @@ var createConsoleTransport = function (config) {
     });
 };
 var createAwsTransport = function (config) {
+    var logStreamName = config.cloudWatch.logStreamName;
     return new CloudWatchTransport({
         awsConfig: config.cloudWatch.awsConfig,
         createLogGroup: true,
         createLogStream: true,
         level: config.cloudWatch.level,
         logGroupName: config.cloudWatch.logGroupName,
-        logStreamName: config.cloudWatch.logStreamName || os.hostname,
+        logStreamName: logStreamName === undefined ? os.hostname : logStreamName,
     });
 };
 exports.default = function (config) {
