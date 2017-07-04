@@ -36,56 +36,17 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
-var lodash_1 = require("lodash");
-var rulr_1 = require("rulr");
 var uuid_1 = require("uuid");
-var BaseError_1 = require("../../errors/BaseError");
-var InvalidAuth_1 = require("../../errors/InvalidAuth");
-var NoModel_1 = require("../../errors/NoModel");
-var Unauthorised_1 = require("../../errors/Unauthorised");
-var sendMessage_1 = require("../utils/sendMessage");
-var sendWarnings_1 = require("../utils/sendWarnings");
+var handleError_1 = require("../utils/handleError");
 exports.default = function (config, handler) {
     var translator = config.translator;
+    var logger = config.logger;
     return function (req, res) { return __awaiter(_this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             return [2 /*return*/, handler(req, res).catch(function (err) {
                     var errorId = uuid_1.v4();
-                    config.logger.error(errorId, err);
-                    if (lodash_1.isNull(err) || lodash_1.isUndefined(null)) {
-                        var code = 500;
-                        var message = translator.serverError();
-                        return sendMessage_1.default({ res: res, code: code, errorId: errorId, message: message });
-                    }
-                    switch (err.constructor) {
-                        case InvalidAuth_1.default: {
-                            var code = 400;
-                            var message = translator.invalidAuth(err);
-                            return sendMessage_1.default({ res: res, code: code, errorId: errorId, message: message });
-                        }
-                        case rulr_1.Warnings: {
-                            var code = 400;
-                            var warnings = err.warnings;
-                            return sendWarnings_1.default({ res: res, code: code, errorId: errorId, warnings: warnings, translator: translator });
-                        }
-                        case NoModel_1.default: {
-                            var code = 404;
-                            var message = translator.noModel(err);
-                            return sendMessage_1.default({ res: res, code: code, errorId: errorId, message: message });
-                        }
-                        case Unauthorised_1.default: {
-                            var code = 401;
-                            var message = translator.unauthorised(err);
-                            return sendMessage_1.default({ res: res, code: code, errorId: errorId, message: message });
-                        }
-                        case Error:
-                        case BaseError_1.default:
-                        default: {
-                            var code = 500;
-                            var message = translator.serverError();
-                            return sendMessage_1.default({ res: res, code: code, errorId: errorId, message: message });
-                        }
-                    }
+                    logger.error(errorId, err);
+                    return handleError_1.default({ translator: translator, errorId: errorId, res: res, err: err });
                 })];
         });
     }); };
