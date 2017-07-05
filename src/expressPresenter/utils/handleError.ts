@@ -6,7 +6,7 @@ import Forbidden from '../../errors/Forbidden';
 import InvalidAuth from '../../errors/InvalidAuth';
 import NoModel from '../../errors/NoModel';
 import Unauthorised from '../../errors/Unauthorised';
-import Translator from '../../translator';
+import Translator from '../../TranslatorFactory/Translator';
 import sendMessage from '../utils/sendMessage';
 import sendWarnings from '../utils/sendWarnings';
 

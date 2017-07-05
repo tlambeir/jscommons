@@ -1,9 +1,9 @@
 import { S3 } from 'aws-sdk';
+import promisfyAction from './promisifyAction';
 
-export default (client: S3, params: S3.PutObjectRequest): Promise<S3.PutObjectOutput> => {
-  return new Promise((resolve, reject) => {
-    client.upload(params, (err, data) => {
-      return err ? reject(err) : resolve(data);
-    });
-  });
+export default (client: S3, params: S3.PutObjectRequest) => {
+  return promisfyAction<S3.PutObjectRequest, S3.PutObjectOutput>(
+    client.upload.bind(client),
+    params,
+  );
 };

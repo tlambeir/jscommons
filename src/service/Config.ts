@@ -1,4 +1,4 @@
-import Repo from '../Repo';
+import Repo from '../RepoFactory/Repo';
 
 interface Config {
   repo: Repo;

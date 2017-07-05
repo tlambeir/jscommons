@@ -1,4 +1,4 @@
-import Repo from '../Repo';
+import Repo from '../RepoFactory/Repo';
 import clearRepo from './clearRepo';
 import Config from './Config';
 import migrate from './migrate';

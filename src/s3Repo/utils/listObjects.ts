@@ -1,9 +1,9 @@
 import { S3 } from 'aws-sdk';
+import promisfyAction from './promisifyAction';
 
-export default (client: S3, params: S3.ListObjectsRequest): Promise<S3.ListObjectsOutput> => {
-  return new Promise((resolve, reject) => {
-    client.listObjects(params, (err, data) => {
-      return err ? reject(err) : resolve(data);
-    });
-  });
+export default (client: S3, params: S3.ListObjectsRequest) => {
+  return promisfyAction<S3.ListObjectsRequest, S3.ListObjectsOutput>(
+    client.listObjects.bind(client),
+    params,
+  );
 };

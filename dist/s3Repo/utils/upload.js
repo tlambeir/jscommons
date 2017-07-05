@@ -1,10 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var promisifyAction_1 = require("./promisifyAction");
 exports.default = function (client, params) {
-    return new Promise(function (resolve, reject) {
-        client.upload(params, function (err, data) {
-            return err ? reject(err) : resolve(data);
-        });
-    });
+    return promisifyAction_1.default(client.upload.bind(client), params);
 };
 //# sourceMappingURL=upload.js.map

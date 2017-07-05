@@ -1,6 +1,6 @@
 import { Response } from 'express';
 import { Warning } from 'rulr';
-import Translator from '../../translator';
+import Translator from '../../TranslatorFactory/Translator';
 import sendObject from '../utils/sendObject';
 import translateWarning from '../utils/translateWarning';
 

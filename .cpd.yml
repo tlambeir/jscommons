@@ -5,6 +5,8 @@ exclude:
   - src/memoryRepo/index.ts
   - src/mongoRepo/index.ts
   - src/knexRepo/index.ts
+  - src/s3Repo/index.ts
+  - src/fsRepo/index.ts
 min-lines: 5
 min-tokens: 38
 debug: false

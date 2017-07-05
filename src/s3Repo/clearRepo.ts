@@ -10,7 +10,7 @@ export default (config: Config) => {
       Bucket: config.bucketName,
       Prefix: config.subFolder,
     });
-    const objects = (listObjectsOutput.Contents || []);
+    const objects = listObjectsOutput.Contents !== undefined ? listObjectsOutput.Contents : [];
     const identifierList: S3.ObjectIdentifierList = objects.reduce(
       (identifiers, { Key }) => {
         if (Key !== undefined) {

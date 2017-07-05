@@ -1,5 +1,5 @@
 import { LoggerInstance } from 'winston';
-import Translator from '../translator';
+import Translator from '../TranslatorFactory/Translator';
 
 interface Config {
   readonly logger: LoggerInstance;

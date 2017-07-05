@@ -1,5 +1,5 @@
 import { RequiredWarning, RestrictedKeysWarning, TypeWarning, Warning } from 'rulr';
-import Translator from '../../translator';
+import Translator from '../../TranslatorFactory/Translator';
 
 export default (translator: Translator, warning: Warning) => {
   switch (warning.constructor) {

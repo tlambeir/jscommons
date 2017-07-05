@@ -49,7 +49,7 @@ exports.default = function (config) {
                     })];
                 case 1:
                     listObjectsOutput = _a.sent();
-                    objects = (listObjectsOutput.Contents || []);
+                    objects = listObjectsOutput.Contents !== undefined ? listObjectsOutput.Contents : [];
                     identifierList = objects.reduce(function (identifiers, _a) {
                         var Key = _a.Key;
                         if (Key !== undefined) {

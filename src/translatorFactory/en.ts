@@ -1,4 +1,4 @@
-import Translator from './index';
+import Translator from './Translator';
 import stringPath from './utils/stringPath';
 
 const translator: Translator = {
