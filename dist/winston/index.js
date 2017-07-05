@@ -25,7 +25,7 @@ var createAwsTransport = function (config) {
         createLogStream: true,
         level: config.cloudWatch.level,
         logGroupName: config.cloudWatch.logGroupName,
-        logStreamName: os.hostname.toString(),
+        logStreamName: os.hostname(),
     });
 };
 exports.default = function (config) {

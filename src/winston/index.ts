@@ -27,7 +27,7 @@ const createAwsTransport = (config: Config): winston.TransportInstance => {
     createLogStream: true,
     level: config.cloudWatch.level,
     logGroupName: config.cloudWatch.logGroupName,
-    logStreamName: os.hostname.toString(),
+    logStreamName: os.hostname(),
   });
 };
 
