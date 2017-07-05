@@ -1,0 +1,1 @@
+{"version":3,"file":"download.js","sourceRoot":"","sources":["../../../src/s3Repo/utils/download.ts"],"names":[],"mappings":";;AAEA,kBAAe,UAAC,MAAU,EAAE,MAA2B;IACrD,IAAM,MAAM,GAAG,MAAM,CAAC,SAAS,CAAC,MAAM,CAAC,CAAC;IACxC,IAAM,MAAM,GAAG,MAAM,CAAC,gBAAgB,EAAE,CAAC;IACzC,MAAM,CAAC,MAAM,CAAC;AAChB,CAAC,CAAC"}
