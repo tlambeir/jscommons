@@ -2,9 +2,9 @@ import Translator from './index';
 import stringPath from './utils/stringPath';
 
 const translator: Translator = {
-  invalidAuth: (err) => `Invalid auth '${err.auth}'`,
-  invalidOp: (err) => `Invalid operator '${err.op}'`,
-  noModel: (err) => `No ${err.modelName} found`,
+  forbiddenError: () => 'Forbidden',
+  invalidAuthError: (err) => `Invalid auth '${err.auth}'`,
+  noModelError: (err) => `No ${err.modelName} found`,
   requiredWarning: (warning) => {
     const path = stringPath(warning.path);
     return `Missing required value in '${path}'`;
@@ -20,7 +20,7 @@ const translator: Translator = {
     const typeName = warning.type.name;
     return `Expected '${path}' to be '${typeName}'`;
   },
-  unauthorised: () => 'Unauthorised',
+  unauthorisedError: () => 'Unauthorised',
   warning: (warning) => {
     const path = stringPath(warning.path);
     return `Problem in '${path}'`;

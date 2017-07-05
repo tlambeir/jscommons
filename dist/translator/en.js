@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var stringPath_1 = require("./utils/stringPath");
 var translator = {
-    invalidAuth: function (err) { return "Invalid auth '" + err.auth + "'"; },
-    invalidOp: function (err) { return "Invalid operator '" + err.op + "'"; },
-    noModel: function (err) { return "No " + err.modelName + " found"; },
+    forbiddenError: function () { return 'Forbidden'; },
+    invalidAuthError: function (err) { return "Invalid auth '" + err.auth + "'"; },
+    noModelError: function (err) { return "No " + err.modelName + " found"; },
     requiredWarning: function (warning) {
         var path = stringPath_1.default(warning.path);
         return "Missing required value in '" + path + "'";
@@ -20,7 +20,7 @@ var translator = {
         var typeName = warning.type.name;
         return "Expected '" + path + "' to be '" + typeName + "'";
     },
-    unauthorised: function () { return 'Unauthorised'; },
+    unauthorisedError: function () { return 'Unauthorised'; },
     warning: function (warning) {
         var path = stringPath_1.default(warning.path);
         return "Problem in '" + path + "'";

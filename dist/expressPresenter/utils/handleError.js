@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var lodash_1 = require("lodash");
 var rulr_1 = require("rulr");
 var BaseError_1 = require("../../errors/BaseError");
+var Forbidden_1 = require("../../errors/Forbidden");
 var InvalidAuth_1 = require("../../errors/InvalidAuth");
 var NoModel_1 = require("../../errors/NoModel");
 var Unauthorised_1 = require("../../errors/Unauthorised");
@@ -18,7 +19,7 @@ exports.default = function (_a) {
     switch (err.constructor) {
         case InvalidAuth_1.default: {
             var code = 400;
-            var message = translator.invalidAuth(err);
+            var message = translator.invalidAuthError(err);
             return sendMessage_1.default({ res: res, code: code, errorId: errorId, message: message });
         }
         case rulr_1.Warnings: {
@@ -28,12 +29,17 @@ exports.default = function (_a) {
         }
         case NoModel_1.default: {
             var code = 404;
-            var message = translator.noModel(err);
+            var message = translator.noModelError(err);
             return sendMessage_1.default({ res: res, code: code, errorId: errorId, message: message });
         }
         case Unauthorised_1.default: {
             var code = 401;
-            var message = translator.unauthorised(err);
+            var message = translator.unauthorisedError(err);
+            return sendMessage_1.default({ res: res, code: code, errorId: errorId, message: message });
+        }
+        case Forbidden_1.default: {
+            var code = 403;
+            var message = translator.forbiddenError(err);
             return sendMessage_1.default({ res: res, code: code, errorId: errorId, message: message });
         }
         case Error:
