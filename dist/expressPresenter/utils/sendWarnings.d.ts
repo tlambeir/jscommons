@@ -1,7 +1,7 @@
 /// <reference types="express" />
 import { Response } from 'express';
 import { Warning } from 'rulr';
-import Translator from '../../TranslatorFactory/Translator';
+import Translator from '../../translatorFactory/Translator';
 export interface Opts {
     res: Response;
     code: number;

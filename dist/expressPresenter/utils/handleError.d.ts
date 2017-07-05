@@ -1,7 +1,7 @@
 /// <reference types="express" />
 import { Response } from 'express';
 import BaseError from '../../errors/BaseError';
-import Translator from '../../TranslatorFactory/Translator';
+import Translator from '../../translatorFactory/Translator';
 export interface Options {
     translator: Translator;
     errorId: string;

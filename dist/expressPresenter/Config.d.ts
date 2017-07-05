@@ -1,6 +1,6 @@
 /// <reference types="winston" />
 import { LoggerInstance } from 'winston';
-import Translator from '../TranslatorFactory/Translator';
+import Translator from '../translatorFactory/Translator';
 interface Config {
     readonly logger: LoggerInstance;
     readonly translator: Translator;
