@@ -6,7 +6,6 @@ interface Config {
         level: string;
         enabled: boolean;
         logGroupName: string;
-        logStreamName?: string;
         awsConfig: {
             accessKeyId: string;
             secretAccessKey: string;

@@ -21,14 +21,13 @@ const createConsoleTransport = (config: Config): winston.TransportInstance => {
 };
 
 const createAwsTransport = (config: Config): winston.TransportInstance => {
-  const logStreamName = config.cloudWatch.logStreamName;
   return new CloudWatchTransport({
     awsConfig: config.cloudWatch.awsConfig,
     createLogGroup: true,
     createLogStream: true,
     level: config.cloudWatch.level,
     logGroupName: config.cloudWatch.logGroupName,
-    logStreamName: logStreamName === undefined ? os.hostname : logStreamName,
+    logStreamName: os.hostname.toString(),
   });
 };
 
