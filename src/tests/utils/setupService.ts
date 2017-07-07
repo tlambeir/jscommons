@@ -6,10 +6,10 @@ const migrateService = async (service: Service) => {
   await service.migrate();
 };
 
-export default (service: Service) => {
+export default <ConcreteService extends Service>(service: ConcreteService) => {
   const migrations = migrateService(service);
 
-  return (): Service => {
+  return (): ConcreteService => {
     before(async () => {
       await migrations;
     });
