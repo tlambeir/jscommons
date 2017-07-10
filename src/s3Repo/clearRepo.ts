@@ -1,15 +1,13 @@
-import { S3 } from 'aws-sdk';
+import * as S3 from 'aws-sdk/clients/s3';
 import Config from './Config';
-import deleteObjects from './utils/deleteObjects';
-import listObjects from './utils/listObjects';
 
 export default (config: Config) => {
   return async (): Promise<void> => {
     // Gets all of the objects to be deleted.
-    const listObjectsOutput = await listObjects(config.client, {
+    const listObjectsOutput = await config.client.listObjects({
       Bucket: config.bucketName,
       Prefix: config.subFolder,
-    });
+    }).promise();
     const objects = listObjectsOutput.Contents !== undefined ? listObjectsOutput.Contents : [];
     const identifierList: S3.ObjectIdentifierList = objects.reduce(
       (identifiers, { Key }) => {
@@ -23,10 +21,10 @@ export default (config: Config) => {
 
     // Deletes the objects.
     if (identifierList.length !== 0) {
-      await deleteObjects(config.client, {
+      await config.client.deleteObjects({
         Bucket: config.bucketName,
         Delete: { Objects: identifierList },
-      });
+      }).promise();
     }
   };
 };

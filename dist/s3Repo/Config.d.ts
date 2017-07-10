@@ -1,4 +1,4 @@
-import { S3 } from 'aws-sdk';
+import * as S3 from 'aws-sdk/clients/s3';
 interface Config {
     client: S3;
     bucketName: string;

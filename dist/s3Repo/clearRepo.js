@@ -36,17 +36,15 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
-var deleteObjects_1 = require("./utils/deleteObjects");
-var listObjects_1 = require("./utils/listObjects");
 exports.default = function (config) {
     return function () { return __awaiter(_this, void 0, void 0, function () {
         var listObjectsOutput, objects, identifierList;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, listObjects_1.default(config.client, {
+                case 0: return [4 /*yield*/, config.client.listObjects({
                         Bucket: config.bucketName,
                         Prefix: config.subFolder,
-                    })];
+                    }).promise()];
                 case 1:
                     listObjectsOutput = _a.sent();
                     objects = listObjectsOutput.Contents !== undefined ? listObjectsOutput.Contents : [];
@@ -58,10 +56,10 @@ exports.default = function (config) {
                         return identifiers;
                     }, []);
                     if (!(identifierList.length !== 0)) return [3 /*break*/, 3];
-                    return [4 /*yield*/, deleteObjects_1.default(config.client, {
+                    return [4 /*yield*/, config.client.deleteObjects({
                             Bucket: config.bucketName,
                             Delete: { Objects: identifierList },
-                        })];
+                        }).promise()];
                 case 2:
                     _a.sent();
                     _a.label = 3;
