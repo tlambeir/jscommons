@@ -1,1 +1,1 @@
-{"version":3,"file":"Forbidden.js","sourceRoot":"","sources":["../../src/errors/Forbidden.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,yCAAoC;AAEpC;IAA6B,6BAAS;IAAtC;;IAAwC,CAAC;IAAD,gBAAC;AAAD,CAAC,AAAzC,CAA6B,mBAAS,GAAG"}
+{"version":3,"file":"Forbidden.js","sourceRoot":"","sources":["../../src/errors/Forbidden.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,6BAA6B;AAC7B,yCAAoC;AAEpC;IAA6B,6BAAS;IAAtC;;IAAwC,CAAC;IAAD,gBAAC;AAAD,CAAC,AAAzC,CAA6B,mBAAS,GAAG"}

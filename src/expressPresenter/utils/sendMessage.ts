@@ -2,10 +2,10 @@ import { Response } from 'express';
 import sendObject from '../utils/sendObject';
 
 export interface Opts {
-  res: Response;
-  code: number;
-  errorId: string;
-  message: string;
+  readonly res: Response;
+  readonly code: number;
+  readonly errorId: string;
+  readonly message: string;
 }
 
 export default ({ res, code, errorId, message }: Opts): Response => {

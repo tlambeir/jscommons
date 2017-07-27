@@ -1,1 +1,1 @@
-{"version":3,"file":"NoModel.js","sourceRoot":"","sources":["../../src/errors/NoModel.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,yCAAoC;AAEpC;IAA6B,6BAAS;IACpC,mBAAmB,SAAiB;QAApC,YACE,iBAAO,SACR;QAFkB,eAAS,GAAT,SAAS,CAAQ;;IAEpC,CAAC;IACH,gBAAC;AAAD,CAAC,AAJD,CAA6B,mBAAS,GAIrC"}
+{"version":3,"file":"NoModel.js","sourceRoot":"","sources":["../../src/errors/NoModel.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,6BAA6B;AAC7B,yCAAoC;AAEpC;IAA6B,6BAAS;IACpC,mBAAmB,SAAiB;QAApC,YACE,iBAAO,SACR;QAFkB,eAAS,GAAT,SAAS,CAAQ;;IAEpC,CAAC;IACH,gBAAC;AAAD,CAAC,AAJD,CAA6B,mBAAS,GAIrC"}

@@ -1,5 +1,5 @@
 import { Db } from 'mongodb';
 interface Config {
-    db: Promise<Db>;
+    readonly db: Promise<Db>;
 }
 export default Config;

@@ -11,10 +11,10 @@ import sendMessage from '../utils/sendMessage';
 import sendWarnings from '../utils/sendWarnings';
 
 export interface Options {
-  translator: Translator;
-  errorId: string;
-  res: Response;
-  err: {} | Error | BaseError;
+  readonly translator: Translator;
+  readonly errorId: string;
+  readonly res: Response;
+  readonly err: {} | Error | BaseError;
 }
 
 export default ({ translator, errorId, res, err }: Options): Response => {

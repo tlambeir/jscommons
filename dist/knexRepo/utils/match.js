@@ -111,6 +111,5 @@ var matchKeys = function (keys) {
 var match = function (props, filter, query) {
     return matchKeys(Object.keys(filter))(props, filter, query);
 };
-// tslint:disable-next-line:max-file-line-count
 exports.default = match;
 //# sourceMappingURL=match.js.map

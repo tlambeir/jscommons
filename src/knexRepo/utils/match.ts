@@ -1,4 +1,4 @@
-/* tslint:disable no-invalid-this no-use-before-declare */
+/* tslint:disable no-invalid-this no-use-before-declare no-this max-file-line-count */
 import { QueryBuilder } from 'knex';
 import { isObject } from 'lodash';
 import InvalidOp from '../../errors/InvalidOp';
@@ -6,10 +6,10 @@ import InvalidOp from '../../errors/InvalidOp';
 export type QueryOp = (props: string[], expected: any, query: QueryBuilder) => QueryBuilder;
 
 interface ComparisonOpts {
-  op: string;
-  props: string[];
-  value: any;
-  query: QueryBuilder;
+  readonly op: string;
+  readonly props: string[];
+  readonly value: any;
+  readonly query: QueryBuilder;
 }
 
 const prop = (props: string[]): string =>
@@ -125,5 +125,4 @@ const match: QueryOp = (props, filter, query) => {
   return matchKeys(Object.keys(filter))(props, filter, query);
 };
 
-// tslint:disable-next-line:max-file-line-count
 export default match;

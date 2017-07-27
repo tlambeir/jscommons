@@ -10,6 +10,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+/* tslint:disable:no-class */
 var BaseError_1 = require("./BaseError");
 var default_1 = (function (_super) {
     __extends(default_1, _super);

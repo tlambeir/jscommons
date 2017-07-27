@@ -1,4 +1,4 @@
 interface Config {
-    storageDir: string;
+    readonly storageDir: string;
 }
 export default Config;

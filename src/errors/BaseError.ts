@@ -1,3 +1,4 @@
+/* tslint:disable:no-class no-this */
 export default class implements Error {
   public name: string;
   public message: string;

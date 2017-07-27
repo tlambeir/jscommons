@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/* tslint:disable:no-class no-this */
 var default_1 = (function () {
     function default_1() {
         this.message = 'Error';

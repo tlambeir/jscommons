@@ -1,7 +1,7 @@
 interface Service {
-  clearService: () => Promise<void>;
-  migrate: () => Promise<void>;
-  rollback: () => Promise<void>;
+  readonly clearService: () => Promise<void>;
+  readonly migrate: () => Promise<void>;
+  readonly rollback: () => Promise<void>;
 }
 
 export default Service;

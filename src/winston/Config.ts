@@ -1,15 +1,15 @@
 interface Config {
-  console: {
-    level: string;
+  readonly console: {
+    readonly level: string;
   };
-  cloudWatch: {
-    level: string;
-    enabled: boolean;
-    logGroupName: string;
-    awsConfig: {
-      accessKeyId: string;
-      secretAccessKey: string;
-      region: string;
+  readonly cloudWatch: {
+    readonly level: string;
+    readonly enabled: boolean;
+    readonly logGroupName: string;
+    readonly awsConfig: {
+      readonly accessKeyId: string;
+      readonly secretAccessKey: string;
+      readonly region: string;
     };
   };
 }

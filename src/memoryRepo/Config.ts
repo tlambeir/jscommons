@@ -1,3 +1,5 @@
+/* tslint:disable:readonly-keyword */
+
 interface Config {
   state: Object;
 }

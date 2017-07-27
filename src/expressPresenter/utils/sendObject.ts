@@ -1,10 +1,10 @@
 import { Response } from 'express';
 
 export interface Opts {
-  res: Response;
-  code: number;
-  errorId: string;
-  obj: object;
+  readonly res: Response;
+  readonly code: number;
+  readonly errorId: string;
+  readonly obj: object;
 }
 
 export default ({ res, code, errorId, obj }: Opts): Response => {
