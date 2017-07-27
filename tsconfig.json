@@ -17,6 +17,7 @@
     "sourceMap": true,
     "declaration": true,
     "strict": true,
+    "preserveConstEnums": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "noUnusedParameters": true,
