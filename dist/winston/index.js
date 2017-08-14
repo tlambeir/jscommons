@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var moment = require("moment");
-var os = require("os");
 var winston = require("winston");
 var CloudWatchTransport = require("winston-aws-cloudwatch");
 var getTime = function () {
@@ -25,7 +24,7 @@ var createAwsTransport = function (config) {
         createLogStream: true,
         level: config.cloudWatch.level,
         logGroupName: config.cloudWatch.logGroupName,
-        logStreamName: os.hostname(),
+        logStreamName: config.cloudWatch.logStreamName,
     });
 };
 exports.default = function (config) {

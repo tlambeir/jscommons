@@ -1,5 +1,4 @@
 import * as moment from 'moment';
-import * as os from 'os';
 import * as winston from 'winston';
 import * as CloudWatchTransport from 'winston-aws-cloudwatch';
 import Config from './Config';
@@ -27,7 +26,7 @@ const createAwsTransport = (config: Config): winston.TransportInstance => {
     createLogStream: true,
     level: config.cloudWatch.level,
     logGroupName: config.cloudWatch.logGroupName,
-    logStreamName: os.hostname(),
+    logStreamName: config.cloudWatch.logStreamName,
   });
 };
 

@@ -6,6 +6,7 @@ interface Config {
         readonly level: string;
         readonly enabled: boolean;
         readonly logGroupName: string;
+        readonly logStreamName: string;
         readonly awsConfig: {
             readonly accessKeyId: string;
             readonly secretAccessKey: string;
