@@ -5,10 +5,11 @@ export default (expectedConstructor: Function, promise: Promise<any>): Promise<v
     assert(false, 'Expected an error to be thrown');
   }, (err) => {
     const actualConstructor = err.constructor;
-    if (actualConstructor !== expectedConstructor) {
-      const x = new Error('Expected a different error constructor');
-      x.stack = err.stack;
-      throw x;
+    if (actualConstructor === expectedConstructor) {
+      return;
     }
+    const x = new Error('Expected a different error constructor');
+    x.stack = err.stack;
+    throw x;
   });
 };

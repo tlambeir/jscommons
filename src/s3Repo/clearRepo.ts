@@ -20,11 +20,12 @@ export default (config: Config) => {
     );
 
     // Deletes the objects.
-    if (identifierList.length !== 0) {
-      await config.client.deleteObjects({
-        Bucket: config.bucketName,
-        Delete: { Objects: identifierList },
-      }).promise();
+    if (identifierList.length === 0) {
+      return;
     }
+    await config.client.deleteObjects({
+      Bucket: config.bucketName,
+      Delete: { Objects: identifierList },
+    }).promise();
   };
 };

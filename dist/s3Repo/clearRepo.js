@@ -55,15 +55,17 @@ exports.default = function (config) {
                         }
                         return identifiers;
                     }, []);
-                    if (!(identifierList.length !== 0)) return [3 /*break*/, 3];
+                    // Deletes the objects.
+                    if (identifierList.length === 0) {
+                        return [2 /*return*/];
+                    }
                     return [4 /*yield*/, config.client.deleteObjects({
                             Bucket: config.bucketName,
                             Delete: { Objects: identifierList },
                         }).promise()];
                 case 2:
                     _a.sent();
-                    _a.label = 3;
-                case 3: return [2 /*return*/];
+                    return [2 /*return*/];
             }
         });
     }); };

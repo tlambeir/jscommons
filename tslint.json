@@ -1,8 +1,11 @@
 {
   "extends": [
-    "tslint-immutable"
+    "tslint-immutable",
+    "tslint-consistent-codestyle"
   ],
   "rules": {
+    "no-unused": true,
+    "early-exit": true,
     "readonly-keyword": true,
     "readonly-array": false, // We'd like this in future.
     "no-let": true,

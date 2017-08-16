@@ -6,11 +6,12 @@ exports.default = function (expectedConstructor, promise) {
         assert(false, 'Expected an error to be thrown');
     }, function (err) {
         var actualConstructor = err.constructor;
-        if (actualConstructor !== expectedConstructor) {
-            var x = new Error('Expected a different error constructor');
-            x.stack = err.stack;
-            throw x;
+        if (actualConstructor === expectedConstructor) {
+            return;
         }
+        var x = new Error('Expected a different error constructor');
+        x.stack = err.stack;
+        throw x;
     });
 };
 //# sourceMappingURL=assertError.js.map
