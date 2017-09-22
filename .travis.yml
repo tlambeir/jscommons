@@ -14,6 +14,5 @@ script:
   - npm run lint
   - npm run duplication -- --limit=0.01
 after_success:
-  - npm prune --production
   - npm run semantic-release
   - greenkeeper-lockfile-upload
