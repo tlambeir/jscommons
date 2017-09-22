@@ -1,6 +1,6 @@
 {
   "name": "jscommons",
-  "version": "0.0.0",
+  "version": "0.0.0-development",
   "description": "A package of common functions used in our JavaScript applications.",
   "author": "HT2-Labs",
   "license": "GPL-3.0",
@@ -8,11 +8,23 @@
     "type": "git",
     "url": "https://github.com/HT2-Labs/jscommons.git"
   },
+  "files": [
+    "dist",
+    ".env.example",
+    "package-lock.json"
+  ],
   "scripts": {
-    "build": "./node_modules/typescript/bin/tsc",
-    "clean": "rm -rf dist",
-    "lint": "./node_modules/tslint/bin/tslint --project ./tsconfig.json -c ./tslint.json",
-    "duplication": "./node_modules/jscpd/bin/jscpd"
+    "acp": "git add -A && npm run commit && git push",
+    "commit": "git-cz",
+    "build": "tsc",
+    "clean": "rimraf dist",
+    "lint": "tslint --project ./tsconfig.json -c ./tslint.json",
+    "duplication": "jscpd"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   },
   "engines": {
     "node": "^6.0.0",
@@ -51,7 +63,10 @@
     "@types/morgan": "^1.7.32",
     "@types/uuid": "^3.0.0",
     "@types/winston": "^2.3.3",
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.0.0",
     "jscpd": "git://github.com/ryansmith94/jscpd.git#prepublish",
+    "rimraf": "^2.6.2",
     "tslint": "^5.4.3",
     "tslint-consistent-codestyle": "^1.6.0",
     "tslint-immutable": "^4.0.2",
