@@ -10,7 +10,9 @@
   },
   "files": [
     "dist",
-    "package-lock.json"
+    "package-lock.json",
+    "tsconfig.json",
+    "tslint.json"
   ],
   "scripts": {
     "acp": "git add -A && npm run commit && git push",
