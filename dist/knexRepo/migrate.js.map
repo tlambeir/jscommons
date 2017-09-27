@@ -1,1 +1,0 @@
-{"version":3,"file":"migrate.js","sourceRoot":"","sources":["../../src/knexRepo/migrate.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA,iBAMA;;AAJA,kBAAe,UAAC,MAAc;IAC5B,OAAA;;;wBACE,qBAAM,OAAO,CAAC,OAAO,CAAC,MAAM,CAAC,EAAE,CAAC,OAAO,CAAC,MAAM,EAAE,CAAC,EAAA;;oBAAjD,SAAiD,CAAC;;;;SACnD;AAFD,CAEC,CAAC"}
