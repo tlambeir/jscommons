@@ -5,5 +5,6 @@ export default (limit: string): RequestHandler => {
   return bodyParser.json({
     limit,
     type: 'application/json',
+    strict: false,
   });
 };
