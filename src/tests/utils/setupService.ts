@@ -1,17 +1,16 @@
+import { once } from 'lodash';
 import 'mocha'; // tslint:disable-line
 import Service from '../../serviceFactory/Service';
 
-const migrateService = async (service: Service) => {
-  await service.rollback();
-  await service.migrate();
-};
-
 export default <ConcreteService extends Service>(service: ConcreteService) => {
-  const migrations = migrateService(service);
+  const migrateService = once(async () => {
+    await service.rollback();
+    await service.migrate();
+  });
 
   return (): ConcreteService => {
     before(async () => {
-      await migrations;
+      await migrateService();
     });
 
     beforeEach(async () => {
