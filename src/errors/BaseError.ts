@@ -1,8 +1,8 @@
 /* tslint:disable:no-class no-this */
 export default class implements Error {
-  public name: string;
-  public message: string;
-  public stack?: string;
+  public readonly name: string;
+  public readonly message: string;
+  public readonly stack?: string;
 
   constructor() {
     this.message = 'Error';
