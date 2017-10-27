@@ -56,7 +56,7 @@
     "@types/cors": "2.8.1",
     "@types/express": "4.0.39",
     "@types/fs-extra": "4.0.3",
-    "@types/helmet": "0.0.36",
+    "@types/helmet": "0.0.37",
     "@types/knex": "0.0.61",
     "@types/lodash": "4.14.80",
     "@types/mocha": "2.2.44",
