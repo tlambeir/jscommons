@@ -9,7 +9,7 @@ export default (config: Config, handler: Handler): Handler => {
   const logger = config.logger;
 
   return async (req, res) => {
-    return handler(req, res).catch((err: {} | Error | BaseError) => {
+    handler(req, res).catch((err: {} | Error | BaseError) => {
       const errorId = uuid();
       logger.error(errorId, err);
       return handleError({ translator, errorId, res, err });
