@@ -10,7 +10,7 @@ const handleExit = (event: string) => {
   };
 };
 
-export default (logger) => {
+export default (logger: LoggerInstance) => {
   logger.info(`Listening on port ${config.express.port}`);
   if (process.send !== undefined) {
     logger.info('Process ready');
