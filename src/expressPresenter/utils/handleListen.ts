@@ -11,7 +11,6 @@ export default (logger: LoggerInstance) => {
     };
   };
 
-  logger.info(`Listening on port ${config.express.port}`);
   if (process.send !== undefined) {
     logger.info('Process ready');
     process.send('ready');
