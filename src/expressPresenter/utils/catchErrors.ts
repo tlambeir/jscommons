@@ -5,14 +5,10 @@ import handleError from '../utils/handleError';
 import Handler from '../utils/Handler';
 
 export default (config: Config, handler: Handler): Handler => {
-  const translator = config.translator;
-  const logger = config.logger;
-
   return async (req, res) => {
     handler(req, res).catch((err: {} | Error | BaseError) => {
       const errorId = uuid();
-      logger.error(errorId, err);
-      return handleError({ translator, errorId, res, err });
+      return handleError({ config, errorId, res, err });
     });
   };
 };
