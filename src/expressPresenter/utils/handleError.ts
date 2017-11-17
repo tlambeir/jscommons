@@ -1,6 +1,5 @@
 import { Response } from 'express';
 import { Warnings } from 'rulr';
-import BaseError from '../../errors/BaseError';
 import Forbidden from '../../errors/Forbidden';
 import InvalidAuth from '../../errors/InvalidAuth';
 import NoModel from '../../errors/NoModel';
@@ -14,13 +13,13 @@ export interface Options {
   readonly config: Config;
   readonly errorId: string;
   readonly res: Response;
-  readonly err: {} | Error | BaseError;
+  readonly err: any;
 }
 
 export default ({ config, errorId, res, err }: Options): Response => {
   const { translator, logger } = config;
   const logError = (msg: string, meta?: any) => {
-    logger.error(`${errorId}: JSCommons handled - ${msg}`, meta);
+    logger.error(`${errorId}: jscommons handled - ${msg}`, meta);
   };
   if (err instanceof InvalidAuth) {
     const code = 400;
