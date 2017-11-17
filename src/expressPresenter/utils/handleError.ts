@@ -1,61 +1,64 @@
 import { Response } from 'express';
-import { isNull, isUndefined } from 'lodash';
 import { Warnings } from 'rulr';
-import BaseError from '../../errors/BaseError';
 import Forbidden from '../../errors/Forbidden';
 import InvalidAuth from '../../errors/InvalidAuth';
 import NoModel from '../../errors/NoModel';
 import Unauthorised from '../../errors/Unauthorised';
-import Translator from '../../translatorFactory/Translator';
+import Config from '../Config';
 import sendMessage from '../utils/sendMessage';
-import sendWarnings from '../utils/sendWarnings';
+import sendObject from '../utils/sendObject';
+import translateWarning from '../utils/translateWarning';
 
 export interface Options {
-  readonly translator: Translator;
+  readonly config: Config;
   readonly errorId: string;
   readonly res: Response;
-  readonly err: {} | Error | BaseError;
+  readonly err: any;
 }
 
-export default ({ translator, errorId, res, err }: Options): Response => {
-  if (isNull(err) || isUndefined(null)) {
-    const code = 500;
-    const message = translator.serverError();
+export default ({ config, errorId, res, err }: Options): Response => {
+  const { translator, logger } = config;
+  const logError = (msg: string, meta?: any) => {
+    logger.error(`${errorId}: jscommons handled - ${msg}`, meta);
+  };
+  if (err instanceof InvalidAuth) {
+    const code = 400;
+    const message = translator.invalidAuthError(err);
+    logError(message);
     return sendMessage({ res, code, errorId, message });
   }
-
-  switch (err.constructor) {
-    case InvalidAuth: {
-      const code = 400;
-      const message = translator.invalidAuthError(err as InvalidAuth);
-      return sendMessage({ res, code, errorId, message });
-    }
-    case Warnings: {
-      const code = 400;
-      const warnings = (err as Warnings).warnings;
-      return sendWarnings({ res, code, errorId, warnings, translator });
-    }
-    case NoModel: {
-      const code = 404;
-      const message = translator.noModelError(err as NoModel);
-      return sendMessage({ res, code, errorId, message });
-    }
-    case Unauthorised: {
-      const code = 401;
-      const message = translator.unauthorisedError(err as Unauthorised);
-      return sendMessage({ res, code, errorId, message });
-    }
-    case Forbidden: {
-      const code = 403;
-      const message = translator.forbiddenError(err as Forbidden);
-      return sendMessage({ res, code, errorId, message });
-    }
-    case Error:
-    case BaseError:
-    default: {
-      const code = 500;
-      const message = translator.serverError();
-      return sendMessage({ res, code, errorId, message });
-    }
+  if (err instanceof Warnings) {
+    const code = 400;
+    const warnings = err.warnings;
+    const strWarnings = warnings.map((warning) => {
+      return translateWarning(translator, warning);
+    });
+    const obj = { warnings: strWarnings };
+    logError('Validation warnings', warnings);
+    return sendObject({ res, code, errorId, obj });
+  }
+  if (err instanceof NoModel) {
+    const code = 404;
+    const message = translator.noModelError(err);
+    logError(message);
+    return sendMessage({ res, code, errorId, message });
+  }
+  if (err instanceof Unauthorised) {
+    const code = 401;
+    const message = translator.unauthorisedError(err);
+    logError(message);
+    return sendMessage({ res, code, errorId, message });
+  }
+  if (err instanceof Forbidden) {
+    const code = 403;
+    const message = translator.forbiddenError(err);
+    logError(message);
+    return sendMessage({ res, code, errorId, message });
+  }
+  {
+    const code = 500;
+    const message = translator.serverError();
+    logError(message, err);
+    return sendMessage({ res, code, errorId, message });
   }
 };
