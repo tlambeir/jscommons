@@ -34,7 +34,7 @@ export default ({ config, errorId, res, err }: Options): Response => {
       return translateWarning(translator, warning);
     });
     const obj = { warnings: strWarnings };
-    logError('Validation warnings', warnings);
+    logError('Validation warnings', strWarnings);
     return sendObject({ res, code, errorId, obj });
   }
   if (err instanceof NoModel) {
