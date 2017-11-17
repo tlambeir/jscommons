@@ -23,13 +23,13 @@ export default ({ config, errorId, res, err }: Options): Response => {
   };
   if (err instanceof InvalidAuth) {
     const code = 400;
-    const message = translator.invalidAuthError(err as InvalidAuth);
+    const message = translator.invalidAuthError(err);
     logError(message);
     return sendMessage({ res, code, errorId, message });
   }
   if (err instanceof Warnings) {
     const code = 400;
-    const warnings = (err as Warnings).warnings;
+    const warnings = err.warnings;
     const strWarnings = warnings.map((warning) => {
       return translateWarning(translator, warning);
     });
@@ -39,19 +39,19 @@ export default ({ config, errorId, res, err }: Options): Response => {
   }
   if (err instanceof NoModel) {
     const code = 404;
-    const message = translator.noModelError(err as NoModel);
+    const message = translator.noModelError(err);
     logError(message);
     return sendMessage({ res, code, errorId, message });
   }
   if (err instanceof Unauthorised) {
     const code = 401;
-    const message = translator.unauthorisedError(err as Unauthorised);
+    const message = translator.unauthorisedError(err);
     logError(message);
     return sendMessage({ res, code, errorId, message });
   }
   if (err instanceof Forbidden) {
     const code = 403;
-    const message = translator.forbiddenError(err as Forbidden);
+    const message = translator.forbiddenError(err);
     logError(message);
     return sendMessage({ res, code, errorId, message });
   }
