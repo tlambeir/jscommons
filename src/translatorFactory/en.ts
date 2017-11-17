@@ -18,12 +18,14 @@ const translator: Translator = {
   typeWarning: (warning) => {
     const path = stringPath(warning.path);
     const typeName = warning.type.name;
-    return `Expected '${path}' to be '${typeName}'`;
+    const dataString = JSON.stringify(warning.data);
+    return `Expected '${path}' to be '${typeName}'. Received '${dataString}'`;
   },
   unauthorisedError: () => 'Unauthorised',
   warning: (warning) => {
     const path = stringPath(warning.path);
-    return `Problem in '${path}'`;
+    const dataString = JSON.stringify(warning.data);
+    return `Problem in '${path}'. Received '${dataString}'`;
   },
 };
 
