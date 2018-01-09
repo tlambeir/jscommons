@@ -21,7 +21,7 @@
     "clean": "rimraf dist",
     "lint": "tslint --project ./tsconfig.json -c ./tslint.json",
     "duplication": "jscpd",
-    "semantic-release": "semantic-release"
+    "semantic-release": "ht2-release-public-travisci-lib"
   },
   "config": {
     "commitizen": {
@@ -53,6 +53,7 @@
     "winston-aws-cloudwatch": "^2.0.0"
   },
   "devDependencies": {
+    "@ht2-labs/semantic-release": "1.0.21",
     "@types/body-parser": "1.16.8",
     "@types/cors": "2.8.3",
     "@types/express": "4.11.0",
@@ -70,11 +71,13 @@
     "cz-conventional-changelog": "2.1.0",
     "jscpd": "0.6.17",
     "rimraf": "2.6.2",
-    "semantic-release": "11.0.2",
     "tslint": "5.8.0",
     "tslint-consistent-codestyle": "1.11.0",
     "tslint-immutable": "4.5.0",
     "tslint-microsoft-contrib": "5.0.1",
     "typescript": "2.6.2"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
