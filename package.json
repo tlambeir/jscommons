@@ -70,7 +70,7 @@
     "@types/morgan": "1.7.35",
     "@types/uuid": "3.4.3",
     "@types/winston": "2.3.9",
-    "commitizen": "2.9.6",
+    "commitizen": "2.10.0",
     "cz-conventional-changelog": "2.1.0",
     "jscpd": "0.6.17",
     "rimraf": "2.6.2",
