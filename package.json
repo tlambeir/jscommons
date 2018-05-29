@@ -33,7 +33,7 @@
     "npm": "3 - 5"
   },
   "dependencies": {
-    "aws-sdk": "2.247.1",
+    "aws-sdk": "2.248.1",
     "bluebird": "3.5.1",
     "body-parser": "1.18.3",
     "boolean": "0.1.3",
