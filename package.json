@@ -15,8 +15,6 @@
     "tslint.json"
   ],
   "scripts": {
-    "acp": "git add -A && npm run commit && git push",
-    "commit": "git-cz",
     "build": "tsc",
     "clean": "rimraf dist",
     "lint": "tslint --project ./tsconfig.json -c ./tslint.json",
@@ -69,7 +67,6 @@
     "@types/morgan": "1.7.35",
     "@types/uuid": "3.4.4",
     "@types/winston": "2.4.4",
-    "commitizen": "2.10.1",
     "cz-conventional-changelog": "2.1.0",
     "jscpd": "0.6.22",
     "rimraf": "2.6.2",
