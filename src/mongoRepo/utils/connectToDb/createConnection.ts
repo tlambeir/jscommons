@@ -5,7 +5,10 @@ import retryConnection from './retryConnection';
 
 export default async (config: Config, retries = 0): Promise<Connection> => {
   try {
-    const client = await MongoClient.connect(config.url);
+    const client = await MongoClient.connect(config.url,
+      {
+        tlsCAFile: `global-bundle.pem` //Specify the DocDB; cert
+      });
     const db = client.db(config.dbName);
 
     config.logger.info(`Created new Mongo connection`);
